@@ -43,6 +43,7 @@ function clear () {
 function setOperator (operator) {
     operation = operator;
     containsOperator = true;
+    expressionText += ` ${operation} `;
 
     deactivateButtons(containsNumber, containsOperator);
 }
@@ -106,12 +107,14 @@ function appendNumber(number) {
 
     if (containsOperator === false && numTwo === "") {
         numOne += number;
+        expressionText += numOne;
         containsNumber = true;
         reactivateButtons(containsNumber, containsOperator);
     }
 
     if (containsOperator === true && numOne !== "") {
         numTwo += number;
+        expressionText += numTwo;
         reactivateButtons(containsNumber, containsOperator);
     }
 
