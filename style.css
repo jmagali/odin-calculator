@@ -109,8 +109,28 @@ button {
     box-shadow: 1px 1px 3px black;
 }
 
+button:hover {
+    background-color: var(--button-hover);
+    width: 71px;
+    height: 71px;
+}
+
+button:active {
+    background-color: var(--button-active);
+    width: 72px;
+    height: 72px;
+}
+
 .two {
     width: 160px;
+}
+
+.two:hover {
+    width: 162px;
+}
+
+.two:active {
+    width: 164px;
 }
 
 .button-row {
