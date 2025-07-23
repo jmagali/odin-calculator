@@ -22,6 +22,7 @@ numbers.forEach( function (button) {
 operators.forEach (function (button) {
     button.addEventListener("click", () => setOperator(button.textContent));
 })
+switchBtn.addEventListener("click", () => switchSign(numOne));
 
 // Expression Functions
 
@@ -36,11 +37,11 @@ function deactivateButtons(containsNumber, containsOperator) {
 
     if (containsOperator === true || containsNumber === false) {
         switchBtn.disabled = true;
-        switchBtn.style.backgroundColor = "#9B9AAE";
+        switchBtn.classList.add("disabled-btn");
 
         operators.forEach (function (button) {
             button.disabled = true;
-            button.style.backgroundColor = "#9B9AAE";
+            button.classList.add("disabled-btn");
         })
     }
 
@@ -55,11 +56,11 @@ function deactivateButtons(containsNumber, containsOperator) {
 function reactivateButtons(containsNumber, containsOperator) {
     if (containsNumber === true && containsOperator === false) {
         switchBtn.disabled = false;
-        switchBtn.style.backgroundColor = "#918FBF";
+        switchBtn.classList.remove("disabled-btn");
 
         operators.forEach (function (button) {
             button.disabled = false;
-            button.style.backgroundColor = "#918FBF";
+            button.classList.remove("disabled-btn");
         })
     }
 }

@@ -121,6 +121,12 @@ button:active {
     height: 72px;
 }
 
+.disabled-btn {
+    background-color: #9B9AAE !important;
+    pointer-events: none;
+    cursor: default;
+}
+
 .two {
     width: 160px;
 }
