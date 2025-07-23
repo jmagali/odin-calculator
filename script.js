@@ -49,8 +49,16 @@ function reactivateButtons(containsNumber, containsOperator) {
     }
 }
 
-function appentNumber(number) {
-    
+function appendNumber(number) {
+    if (containsOperator === false && numTwo === "") {
+        numOne += number;
+        containsNumber = true;
+        reactivateButtons(containsNumber, containsOperator);
+    }
+
+    if (containsOperator === true && numOne !== "") {
+        numTwo += number;
+    }
 }
 
 // Mathematical Functions
