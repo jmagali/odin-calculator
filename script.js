@@ -1,3 +1,6 @@
+// Create global variables
+let numOne, numTwo, operation;
+
 function add(a, b) {
     return a + b;
 }
