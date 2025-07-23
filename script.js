@@ -1,5 +1,7 @@
 // Create global variables
-let numOne, numTwo, operation;
+let numOne = "";
+let numTwo = "";
+let operation = null;
 
 // Get all elements
 const expression = document.getElementById("expression");
@@ -9,6 +11,13 @@ const deleteBtn = document.getElementById("delete");
 const numbers = document.getElementsByClassName("number");
 const operators = document.getElementsByClassName("operator");
 const equalsBtn = document.getElementById("equals");
+
+// Events
+numbers.forEach( function (button) {
+    button.addEventListener("click", appendNumber(button.textContent));
+})
+
+// Mathematical Functions
 
 function add(a, b) {
     return a + b;
