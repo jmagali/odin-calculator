@@ -20,3 +20,24 @@ function divide(a, b) {
 
     return a / b;
 }
+
+function operate (a, b, operator) {
+    let answer;
+
+    switch (operator) {
+        case "+":
+            answer = add(a, b);
+            break;
+        case "-":
+            answer = subtract(a, b);
+            break;
+        case "x":
+            answer = multiply(a,b);
+            break;
+        case "/": 
+            answer = divide(a, b);
+            break;
+    }
+
+    return answer;
+}
