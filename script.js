@@ -10,27 +10,42 @@ const expression = document.getElementById("expression");
 const result = document.getElementById("result");
 const clearBtn = document.getElementById("clear");
 const deleteBtn = document.getElementById("delete");
-const numbers = document.getElementsByClassName("number");
-const operators = document.getElementsByClassName("operator");
+const numbers = Array.from(document.getElementsByClassName("number"));
+const operators = Array.from(document.getElementsByClassName("operator"));
 const equalsBtn = document.getElementById("equals");
 
 // Events
 numbers.forEach( function (button) {
-    button.addEventListener("click", appendNumber(button.textContent));
+    button.addEventListener("click", () => appendNumber(button.textContent));
 })
 operators.forEach (function (button) {
-    button.addEventListener("click", setOperator(button.textContent))
+    button.addEventListener("click", () => setOperator(button.textContent));
 })
 
 // Expression Functions
 
 function setOperator (operator) {
-    
+    operation = operator;
+    containsOperator = true;
+
+    deactivateButtons(containsNumber, containsOperator);
 }
 
-function deactivateButtons(containsNumber) {
-    if (containsNumber === false) {
-        // TODO
+function deactivateButtons(containsNumber, containsOperator) {
+    if (containsNumber === false || containsOperator === false) {
+        operators.forEach (function (button) {
+            button.disabled = true;
+            button.style.backgroundColor = "#9B9AAE";
+        })
+    }
+}
+
+function reactivateButtons(containsNumber, containsOperator) {
+    if (containsNumber === true && containsOperator === false) {
+        operators.forEach (function (button) {
+            button.disabled = false;
+            button.style.backgroundColor = "918FBF";
+        })
     }
 }
 
@@ -89,3 +104,4 @@ function operate (a, b, operator) {
 }
 
 // Beginning Function Calls
+deactivateButtons(containsNumber, containsOperator)
