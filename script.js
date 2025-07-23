@@ -83,10 +83,6 @@ function divide(a, b) {
     return a / b;
 }
 
-function modulus(a, b) {
-    return a % b;
-}
-
 function operate (a, b, operator) {
     let answer;
 
@@ -102,9 +98,6 @@ function operate (a, b, operator) {
             break;
         case "÷": 
             answer = divide(a, b);
-            break;
-        case "%":
-            answer = modulus(a, b);
             break;
     }
 
