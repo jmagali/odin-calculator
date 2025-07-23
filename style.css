@@ -43,7 +43,7 @@
     background-color: var(--calculator);
     height: 80vh;
     padding: 20px;
-    box-shadow: 5px 5px 30px var(--border);
+    box-shadow: 5px 5px 5px var(--border);
     border-radius: 20px;
     width: 30vw;
 }
