@@ -18,3 +18,36 @@
     border-bottom: 0.5vh solid black; /* Change border colour */
     text-shadow: 0 0 5px black;
 }
+
+/* MAIN */
+
+/* FOOTER */
+
+.footer {
+    position: fixed;
+    bottom: 0px;
+    height: 7vh;
+    width: 100vw;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: var(--header); */
+    color: white;
+    border-top: 0.5vh solid black; /* change colour */
+    text-shadow: 0 0 5px black;
+}
+
+.github {
+    height: 3.5vh;
+    width: auto;
+    margin-left: 10px;
+}
+
+.github:hover {
+    height: 3.7vh;
+}
+
+.github:active {
+    height: 3.8vh;
+}
