@@ -94,7 +94,6 @@
 .button-container {
     width: 370px;
     height: 450px;
-    border: solid red;
     display: flex;
     flex-direction: column;
     align-content: space-evenly;
