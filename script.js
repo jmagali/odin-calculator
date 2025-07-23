@@ -4,6 +4,7 @@ let numTwo = "";
 let operation = null;
 let containsNumber = false;
 let containsOperator = false;
+let expressionText = "";
 
 // Get all elements
 const expression = document.getElementById("expression");
@@ -29,8 +30,15 @@ switchBtn.addEventListener("click", function () {
     else
         numTwo = switchSign(numTwo).toString();
 });
+clearBtn.addEventListener("click", () => clear());
 
 // Expression Functions
+
+function clear () {
+    numOne = "";
+    numTwo = "";
+    operation = null;
+}
 
 function setOperator (operator) {
     operation = operator;
