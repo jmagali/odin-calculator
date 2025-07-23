@@ -13,6 +13,7 @@ const deleteBtn = document.getElementById("delete");
 const numbers = Array.from(document.getElementsByClassName("number"));
 const operators = Array.from(document.getElementsByClassName("operator"));
 const equalsBtn = document.getElementById("equals");
+const switchBtn = document.getElementById("switch")
 
 // Events
 numbers.forEach( function (button) {
@@ -32,16 +33,30 @@ function setOperator (operator) {
 }
 
 function deactivateButtons(containsNumber, containsOperator) {
-    if (containsNumber === false || containsOperator === false) {
+
+    if (containsOperator === true || containsNumber === false) {
+        switchBtn.disabled = true;
+        switchBtn.style.backgroundColor = "#9B9AAE";
+
         operators.forEach (function (button) {
             button.disabled = true;
             button.style.backgroundColor = "#9B9AAE";
         })
     }
+
+    if (numOne !== "" && numTwo !== "" && containsOperator === true) {
+        operators.forEach (function (button) {
+            button.disabled = true;
+            button.style.backgroundColor = "#9B9AAE";
+        });
+    }
 }
 
 function reactivateButtons(containsNumber, containsOperator) {
     if (containsNumber === true && containsOperator === false) {
+        switchBtn.disabled = false;
+        switchBtn.style.backgroundColor = "#918FBF";
+
         operators.forEach (function (button) {
             button.disabled = false;
             button.style.backgroundColor = "#918FBF";
