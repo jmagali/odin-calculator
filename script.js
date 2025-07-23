@@ -83,6 +83,10 @@ function divide(a, b) {
     return a / b;
 }
 
+function switchSign(num) {
+    return -num;
+}
+
 function operate (a, b, operator) {
     let answer;
 
