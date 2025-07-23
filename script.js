@@ -2,6 +2,8 @@
 let numOne = "";
 let numTwo = "";
 let operation = null;
+let containsNumber = false;
+let containsOperator = false;
 
 // Get all elements
 const expression = document.getElementById("expression");
@@ -16,6 +18,25 @@ const equalsBtn = document.getElementById("equals");
 numbers.forEach( function (button) {
     button.addEventListener("click", appendNumber(button.textContent));
 })
+operators.forEach (function (button) {
+    button.addEventListener("click", setOperator(button.textContent))
+})
+
+// Expression Functions
+
+function setOperator (operator) {
+    
+}
+
+function deactivateButtons(containsNumber) {
+    if (containsNumber === false) {
+        // TODO
+    }
+}
+
+function appentNumber(number) {
+    
+}
 
 // Mathematical Functions
 
@@ -66,3 +87,5 @@ function operate (a, b, operator) {
 
     return answer;
 }
+
+// Beginning Function Calls
