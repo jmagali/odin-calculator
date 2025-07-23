@@ -104,6 +104,9 @@ button {
     margin: 2.5px;
     width: 70px;
     height: 70px;
+    background-color: var(--calculator);
+    border: none;
+    box-shadow: 1px 1px 3px black;
 }
 
 .two {
