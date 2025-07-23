@@ -1,5 +1,6 @@
 :root {
     --header: #7469B6;
+    --border: #453E6D ;
     --background: #AD88C6;
     --calculator: #918FBF;
     --button-hover: #B99FC8;
@@ -22,8 +23,8 @@
     flex-direction: column;
     padding: 5vh;
     color: white;
-    /* background colour  */
-    border-bottom: 0.5vh solid black; /* Change border colour */
+    background-color: var(--header);
+    border-bottom: 0.5vh solid var(--border); 
     text-shadow: 0 0 5px black;
 }
 
@@ -40,9 +41,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    /* background-color: var(--header); */
+    background-color: var(--header);
+    border-top: 0.5vh solid var(--border); 
     color: white;
-    border-top: 0.5vh solid black; /* change colour */
     text-shadow: 0 0 5px black;
 }
 
