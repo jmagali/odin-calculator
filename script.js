@@ -21,15 +21,27 @@ const dotBtn = document.getElementById("dot");
 numbers.forEach( function (button) {
     button.addEventListener("click", () => appendNumber(button.textContent));
 })
+
 operators.forEach (function (button) {
     button.addEventListener("click", () => setOperator(button.textContent));
 })
+
 switchBtn.addEventListener("click", function () {
-    if (numTwo === "")
+    if (numTwo === "") {
+        expressionText = "";
         numOne = switchSign(numOne).toString();
-    else
+        expressionText += numOne;
+    }
+    else {
+        expressionText = expressionText.slice(0, numOne.length + 3);
         numTwo = switchSign(numTwo).toString();
+        if (numTwo > 0)
+            expressionText += numTwo;
+        else 
+            expressionText += `(${numTwo}`;
+    }
 });
+
 clearBtn.addEventListener("click", () => clear());
 
 // Expression Functions
@@ -107,14 +119,14 @@ function appendNumber(number) {
 
     if (containsOperator === false && numTwo === "") {
         numOne += number;
-        expressionText += numOne;
+        expressionText += number;
         containsNumber = true;
         reactivateButtons(containsNumber, containsOperator);
     }
 
     if (containsOperator === true && numOne !== "") {
         numTwo += number;
-        expressionText += numTwo;
+        expressionText += number;
         reactivateButtons(containsNumber, containsOperator);
     }
 
