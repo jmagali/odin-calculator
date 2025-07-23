@@ -44,7 +44,7 @@ function reactivateButtons(containsNumber, containsOperator) {
     if (containsNumber === true && containsOperator === false) {
         operators.forEach (function (button) {
             button.disabled = false;
-            button.style.backgroundColor = "918FBF";
+            button.style.backgroundColor = "#918FBF";
         })
     }
 }
