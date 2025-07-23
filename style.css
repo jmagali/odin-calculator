@@ -62,7 +62,7 @@
     text-shadow: 1px 1px 3px black;
     font-size: 20px;
     position: relative;
-    margin-bottom: 5vh;
+    margin-bottom: 10px;
 }
 
 #expression {
@@ -93,6 +93,7 @@
 
 .button-container {
     width: 350px;
+    height: 450px;
     padding: 8px;
     border: solid red;
 }
