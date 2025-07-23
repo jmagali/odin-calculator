@@ -38,7 +38,7 @@ function operate (a, b, operator) {
         case "x":
             answer = multiply(a,b);
             break;
-        case "/": 
+        case "÷": 
             answer = divide(a, b);
             break;
         case "%":
