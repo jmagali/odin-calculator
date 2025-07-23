@@ -44,7 +44,20 @@ switchBtn.addEventListener("click", function () {
 
 clearBtn.addEventListener("click", () => clear());
 
+deleteBtn.addEventListener("click", () => expressionText = deleteText());
+
 // Expression Functions
+
+function deleteText() {
+    let newText = expressionText;
+
+    if (expressionText.slice(numOne.length + 3, expressionText.length) === "(-") {
+        newText = newText.slice(0, numOne.length + 3);
+        numTwo = "";
+        return newText;
+    }
+
+}
 
 function clear () {
     numOne = "";
@@ -87,6 +100,11 @@ function deactivateButtons(containsNumber, containsOperator) {
         dotBtn.disabled = true;
         dotBtn.classList.add("disabled-btn");
     }
+
+    if (expressionText === "") {
+        deleteBtn.disabled = true;
+        deleteBtn.classList.add("disabled-btn");
+    }
 }
 
 function reactivateButtons(containsNumber, containsOperator) {
@@ -110,6 +128,11 @@ function reactivateButtons(containsNumber, containsOperator) {
         && numTwo !== "") {
         switchBtn.disabled = false;
         switchBtn.classList.remove("disabled-btn");
+    }
+
+    if (expressionText !== "") {
+        deleteBtn.disabled = false;
+        deleteBtn.classList.remove("disabled-btn");
     }
 }
 
