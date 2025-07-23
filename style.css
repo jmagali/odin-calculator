@@ -92,14 +92,12 @@
 }
 
 .button-container {
-    width: 350px;
+    width: 370px;
     height: 450px;
-    padding: 8px;
     border: solid red;
     display: flex;
     flex-direction: column;
-    flex-wrap: wrap;
-    align-items: center;
+    align-content: space-evenly;
     justify-content: space-evenly;
 }
 
@@ -113,10 +111,10 @@ button {
     width: 150px;
 }
 
-.button-rows {
+.button-row {
     display: flex;
     justify-content: space-evenly;
-    align-items: center;
+    align-content: space-evenly;
 }
 
 /* FOOTER */
