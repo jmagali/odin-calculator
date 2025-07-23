@@ -1,3 +1,11 @@
+:root {
+    --header: #7469B6;
+    --background: #AD88C6;
+    --calculator: #918FBF;
+    --button-hover: #B99FC8;
+    --button-active: #E1AFD1;
+}
+
 * {
     margin: 0;
     padding: 0;
