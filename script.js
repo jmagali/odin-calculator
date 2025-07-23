@@ -23,7 +23,12 @@ numbers.forEach( function (button) {
 operators.forEach (function (button) {
     button.addEventListener("click", () => setOperator(button.textContent));
 })
-switchBtn.addEventListener("click", () => switchSign(numOne));
+switchBtn.addEventListener("click", function () {
+    if (numTwo === "")
+        numOne = switchSign(numOne).toString();
+    else
+        numTwo = switchSign(numTwo).toString();
+});
 
 // Expression Functions
 
@@ -130,7 +135,7 @@ function divide(a, b) {
 }
 
 function switchSign(num) {
-    return -num;
+    return num * -1;
 }
 
 function operate (a, b, operator) {
