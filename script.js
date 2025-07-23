@@ -13,7 +13,8 @@ const deleteBtn = document.getElementById("delete");
 const numbers = Array.from(document.getElementsByClassName("number"));
 const operators = Array.from(document.getElementsByClassName("operator"));
 const equalsBtn = document.getElementById("equals");
-const switchBtn = document.getElementById("switch")
+const switchBtn = document.getElementById("switch");
+const dotBtn = document.getElementById("dot");
 
 // Events
 numbers.forEach( function (button) {
@@ -48,13 +49,27 @@ function deactivateButtons(containsNumber, containsOperator) {
     if (numOne !== "" && numTwo !== "" && containsOperator === true) {
         operators.forEach (function (button) {
             button.disabled = true;
-            button.style.backgroundColor = "#9B9AAE";
+            button.classList.add("disabled-btn");
         });
+    }
+
+    if ((numOne.includes(".") && containsOperator === false)
+        || (numTwo.includes(".") && containsOperator === true)
+        || numOne === ""
+        || (numOne !== "" && containsOperator === true && numTwo === "")
+    ) {
+        dotBtn.disabled = true;
+        dotBtn.classList.add("disabled-btn");
     }
 }
 
 function reactivateButtons(containsNumber, containsOperator) {
     if (containsNumber === true && containsOperator === false) {
+        if (!numOne.includes(".") && numOne !== "") {
+            dotBtn.disabled = false;
+            dotBtn.classList.remove("disabled-btn");
+        }
+
         switchBtn.disabled = false;
         switchBtn.classList.remove("disabled-btn");
 
@@ -63,9 +78,19 @@ function reactivateButtons(containsNumber, containsOperator) {
             button.classList.remove("disabled-btn");
         })
     }
+
+    if (containsOperator === true 
+        && (!numTwo.includes(".")) 
+        && numTwo !== "") {
+        switchBtn.disabled = false;
+        switchBtn.classList.remove("disabled-btn");
+    }
 }
 
 function appendNumber(number) {
+
+    deactivateButtons(containsNumber, containsOperator)
+
     if (containsOperator === false && numTwo === "") {
         numOne += number;
         containsNumber = true;
@@ -74,6 +99,11 @@ function appendNumber(number) {
 
     if (containsOperator === true && numOne !== "") {
         numTwo += number;
+        reactivateButtons(containsNumber, containsOperator);
+    }
+
+    if (number === ".") {
+        deactivateButtons(containsNumber, containsOperator)
     }
 }
 
