@@ -4,3 +4,17 @@
     box-sizing: border-box;
     font-family: Roboto, sans-seif
 }
+
+/* HEADER */
+
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 5vh;
+    color: white;
+    /* background colour  */
+    border-bottom: 0.5vh solid black; /* Change border colour */
+    text-shadow: 0 0 5px black;
+}
