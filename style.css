@@ -98,6 +98,17 @@
     border: solid red;
     display: flex;
     flex-direction: column;
+    flex-wrap: wrap;
+}
+
+button {
+    margin: 2.5px;
+    width: 70px;
+    height: 70px;
+}
+
+.two {
+    width: 140px;
 }
 
 /* FOOTER */
