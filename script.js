@@ -1,6 +1,15 @@
 // Create global variables
 let numOne, numTwo, operation;
 
+// Get all elements
+const expression = document.getElementById("expression");
+const result = document.getElementById("result");
+const clearBtn = document.getElementById("clear");
+const deleteBtn = document.getElementById("delete");
+const numbers = document.getElementsByClassName("number");
+const operators = document.getElementsByClassName("operator");
+const equalsBtn = document.getElementById("equals");
+
 function add(a, b) {
     return a + b;
 }
