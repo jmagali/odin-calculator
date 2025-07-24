@@ -6,6 +6,7 @@ let containsNumber = false;
 let containsOperator = false;
 let expressionText = "";
 let answerText = "";
+let pressedEquals = false;
 
 // Get all elements
 const expression = document.getElementById("expression");
@@ -101,6 +102,8 @@ function clear () {
     expressionText = "";
     containsNumber = false;
     containsOperator = false;
+    answerText = "";
+    pressedEquals = false;
 
     deactivateButtons();
     reactivateButtons();
@@ -150,9 +153,23 @@ function deactivateButtons() {
 
     if (containsNumber === false 
         || containsOperator === false
-        || numTwo === "") {       
+        || numTwo === ""
+        || answerText !== "") {       
         equalsBtn.disabled = true;
         equalsBtn.classList.add("disabled-btn");
+    }
+
+    if (pressedEquals === true) {
+        switchBtn.disabled = true;
+        switchBtn.classList.add("disabled-btn");
+
+        numbers.forEach( function (button) {
+            button.disabled = true;
+            button.classList.add("disabled-btn");
+        });
+
+        deleteBtn.disabled = true;
+        deleteBtn.classList.add("disabled-btn");
     }
 }
 
@@ -191,7 +208,15 @@ function reactivateButtons() {
             equalsBtn.classList.remove("disabled-btn");    
             switchBtn.disabled = false;
             switchBtn.classList.remove("disabled-btn");    
-        }
+    }
+
+    if (pressedEquals === false) {
+        numbers.forEach( function (button) {
+            button.disabled = false;
+            button.classList.remove("disabled-btn");
+        });
+        
+    }
 }
 
 function appendNumber(number) {
@@ -260,6 +285,9 @@ function operate (a, b, operator) {
             answerText = divide(a, b);
             break;
     }
+
+    pressedEquals = true;
+    deactivateButtons()
 }
 
 // Beginning Function Calls
