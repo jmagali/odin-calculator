@@ -44,19 +44,51 @@ switchBtn.addEventListener("click", function () {
 
 clearBtn.addEventListener("click", () => clear());
 
-deleteBtn.addEventListener("click", () => expressionText = deleteText());
+deleteBtn.addEventListener("click", () => deleteText());
 
 // Expression Functions
 
 function deleteText() {
-    let newText = expressionText;
 
-    if (expressionText.slice(numOne.length + 3, expressionText.length) === "(-") {
-        newText = newText.slice(0, numOne.length + 3);
-        numTwo = "";
-        return newText;
+    if (numTwo.startsWith(`-`)) {
+        if (numTwo.length === 2) {
+            expressionText = expressionText.slice(0, -3);
+            numTwo = "";
+            deactivateButtons(containsNumber, containsOperator);
+            return;
+        }
+
+        expressionText = expressionText.slice(0, -1);
+        numTwo = numTwo.slice(0, -1);
+        reactivateButtons(containsNumber, containsOperator);
+        return;
     }
 
+    if (containsOperator && numTwo.length > 0) {
+        expressionText = expressionText.slice(0, -1);
+        numTwo = numTwo.slice(0, -1);
+        reactivateButtons(containsNumber, containsOperator);
+        return;
+    }
+
+    if (containsOperator && numTwo === "") {
+        expressionText = expressionText.slice(0, -3); 
+        operation = null;
+        containsOperator = false;
+        reactivateButtons(containsNumber, containsOperator);
+        return;
+    }
+
+    if (!containsOperator && numOne.length > 0) {
+        expressionText = expressionText.slice(0, -1);
+        numOne = numOne.slice(0, -1);
+        if (numOne === "") containsNumber = false;
+        reactivateButtons(containsNumber, containsOperator);
+        deactivateButtons(containsNumber, containsOperator);
+        return;
+    }
+
+    return;
 }
 
 function clear () {
