@@ -355,6 +355,7 @@ function operate (a, b, operator) {
             answerText = multiply(a,b);
             break;
         case "÷": 
+        case "/":
             answerText = divide(a, b);
             break;
     }
