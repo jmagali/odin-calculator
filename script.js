@@ -296,19 +296,19 @@ function appendNumber(number) {
             reactivateButtons();
         }
         else {
-            answerText = "Error! 12 digits exceeded!";
+            result.innerText = "Max digits reached";
         }
     }
 
     if (containsOperator === true && numOne !== "") {
-        if (numOne.length < MAX_LENGTH) {
+        if (numTwo.length < MAX_LENGTH) {
             numTwo += number;
             expressionText += number;
             containsNumber = true;
             reactivateButtons();
         }
         else {
-            answerText = "Error! 12 digits exceeded!";
+            result.innerText = "Max digits reached";
         }
 
     }
