@@ -296,7 +296,7 @@ function appendNumber(number) {
             reactivateButtons();
         }
         else {
-            answerText = "Error! Max length exceeded!";
+            answerText = "Error! 12 digits exceeded!";
         }
     }
 
@@ -308,7 +308,7 @@ function appendNumber(number) {
             reactivateButtons();
         }
         else {
-            answerText = "Error! Max length exceeded!";
+            answerText = "Error! 12 digits exceeded!";
         }
 
     }
