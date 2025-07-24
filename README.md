@@ -8,6 +8,5 @@ Languages: HTML, CSS, JS
 
 Future Additions:
 <ul>
-  <li>Keyboard Functionality</li>
   <li>Digit Limits</li>
 </ul>
