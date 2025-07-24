@@ -42,6 +42,8 @@ switchBtn.addEventListener("click", function () {
         else 
             expressionText += `(${numTwo}`;
     }
+
+    updateExpression ();
 });
 
 clearBtn.addEventListener("click", () => clear());
