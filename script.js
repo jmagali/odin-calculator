@@ -6,6 +6,10 @@ let containsNumber = false;
 let containsOperator = false;
 let expressionText = "";
 let answerText = "";
+let prevNumOne = "";
+let prevNumTwo = "";
+let prevOperation = null;
+let prevExpressionText = "";
 
 // Get all elements
 const expression = document.getElementById("expression");
@@ -67,6 +71,23 @@ function updateResult () {
 }
 
 function deleteText() {
+
+    if (answerText !== "" && !containsOperator && prevExpressionText !== "") {
+        numOne = prevNumOne;
+        numTwo = prevNumTwo;
+        operation = prevOperation;
+        expressionText = prevExpressionText;
+        answerText = "";
+
+        containsOperator = operation !== null;
+        containsNumber = numOne !== "";
+
+        updateExpression();
+        updateResult();
+        reactivateButtons();
+        deactivateButtons();
+        return;
+    }
 
     if (expressionText === "" && numOne !== "") {
         expressionText = numOne;
@@ -316,6 +337,11 @@ function switchSign(num) {
 }
 
 function operate (a, b, operator) {
+
+    prevNumOne = numOne;
+    prevNumTwo = numTwo;
+    prevOperation = operation;
+    prevExpressionText = expressionText;
 
     switch (operator) {
         case "+":
