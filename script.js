@@ -80,6 +80,22 @@ function deleteText() {
         return;
     }
 
+    if (numOne.startsWith(`-`)) {
+        if (numOne.length === 2) {
+            expressionText = "";
+            numTwo = "";
+            deactivateButtons();
+            updateExpression ();
+            return;
+        }
+
+        expressionText = expressionText.slice(0, -1);
+        numOne = numOne.slice(0, -1);
+        reactivateButtons();
+        updateExpression ();
+        return;
+    }
+
     if (containsOperator && numTwo.length > 0) {
         expressionText = expressionText.slice(0, -1);
         numTwo = numTwo.slice(0, -1);
