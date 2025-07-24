@@ -97,6 +97,8 @@ function clear () {
     numTwo = "";
     operation = null;
     expressionText = "";
+    containsNumber = false;
+    containsOperator = false;
 
     deactivateButtons();
     reactivateButtons();
