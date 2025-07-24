@@ -6,7 +6,6 @@ let containsNumber = false;
 let containsOperator = false;
 let expressionText = "";
 let answerText = "";
-let pressedEquals = false;
 
 // Get all elements
 const expression = document.getElementById("expression");
@@ -132,7 +131,6 @@ function clear () {
     containsNumber = false;
     containsOperator = false;
     answerText = "";
-    pressedEquals = false;
 
     updateExpression ();
     updateResult ();
@@ -142,6 +140,13 @@ function clear () {
 }
 
 function setOperator (operator) {
+    if (answerText !== "" && operation === null) {
+        expressionText = answerText;
+        numOne = answerText.toString();
+        answerText = "";
+        updateResult();
+    }
+
     operation = operator;
     containsOperator = true;
     expressionText += ` ${operation} `;
@@ -193,19 +198,6 @@ function deactivateButtons() {
         equalsBtn.classList.add("disabled-btn");
     }
 
-    if (pressedEquals === true) {
-        switchBtn.disabled = true;
-        switchBtn.classList.add("disabled-btn");
-
-        numbers.forEach( function (button) {
-            button.disabled = true;
-            button.classList.add("disabled-btn");
-        });
-
-        deleteBtn.disabled = true;
-        deleteBtn.classList.add("disabled-btn");
-    }
-
     updateResult();
 }
 
@@ -245,17 +237,22 @@ function reactivateButtons() {
             switchBtn.disabled = false;
             switchBtn.classList.remove("disabled-btn");    
     }
-
-    if (pressedEquals === false) {
-        numbers.forEach( function (button) {
-            button.disabled = false;
-            button.classList.remove("disabled-btn");
-        });
-        
-    }
 }
 
 function appendNumber(number) {
+
+    if (answerText === "" && !containsOperator && numOne !== "") {
+        expressionText = "";
+        answerText = "";
+        numOne = "";
+        numTwo = "";
+        containsNumber = false;
+        operation = null;
+        containsOperator = false;
+
+        updateResult();
+        updateExpression();
+    }
 
     if (containsOperator === false && numTwo === "") {
         numOne += number;
@@ -324,8 +321,21 @@ function operate (a, b, operator) {
             break;
     }
 
-    pressedEquals = true;
     updateResult ();
+
+    if (!isNaN(answerText)) {
+        numOne = answerText.toString();
+        operation = null;
+        numTwo = "";
+        containsNumber = true;
+        containsOperator = false;
+    }
+    else {
+        deactivateButtons();
+        return;
+    }
+
+    reactivateButtons();
     deactivateButtons();
 }
 
