@@ -52,6 +52,10 @@ equalsBtn.addEventListener("click", () => operate(numOne, numTwo, operation));
 
 // Expression Functions
 
+function updateExpression () {
+    expression.innerText = expressionText;
+}
+
 function deleteText() {
 
     if (numTwo.startsWith(`-`)) {
@@ -92,7 +96,7 @@ function deleteText() {
         return;
     }
 
-    return;
+    updateExpression ();
 }
 
 function clear () {
@@ -105,6 +109,8 @@ function clear () {
     answerText = "";
     pressedEquals = false;
 
+
+
     deactivateButtons();
     reactivateButtons();
 }
@@ -113,6 +119,8 @@ function setOperator (operator) {
     operation = operator;
     containsOperator = true;
     expressionText += ` ${operation} `;
+
+    updateExpression ();
 
     reactivateButtons();
     deactivateButtons();
@@ -235,12 +243,14 @@ function appendNumber(number) {
         reactivateButtons();
     }
 
-    deactivateButtons()
+    deactivateButtons();
     reactivateButtons();
 
     if (number === ".") {
         deactivateButtons()
     }
+
+    updateExpression ();
 }
 
 // Mathematical Functions
@@ -287,7 +297,8 @@ function operate (a, b, operator) {
     }
 
     pressedEquals = true;
-    deactivateButtons()
+    updateExpression ();
+    deactivateButtons();
 }
 
 // Beginning Function Calls
