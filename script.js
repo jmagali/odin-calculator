@@ -72,7 +72,7 @@ function takeKeyInputs(e) {
 
         appendNumber(e.key);
     }
-    if (e.key === "=" || e.key === "Enter") {
+    if (e.key === "="|| e.key === "Enter") {
         if (equalsBtn.classList.contains("disabled-btn")) {
             return;
         }
