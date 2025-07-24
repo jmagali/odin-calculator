@@ -54,20 +54,20 @@ function deleteText() {
         if (numTwo.length === 2) {
             expressionText = expressionText.slice(0, -3);
             numTwo = "";
-            deactivateButtons(containsNumber, containsOperator);
+            deactivateButtons();
             return;
         }
 
         expressionText = expressionText.slice(0, -1);
         numTwo = numTwo.slice(0, -1);
-        reactivateButtons(containsNumber, containsOperator);
+        reactivateButtons();
         return;
     }
 
     if (containsOperator && numTwo.length > 0) {
         expressionText = expressionText.slice(0, -1);
         numTwo = numTwo.slice(0, -1);
-        reactivateButtons(containsNumber, containsOperator);
+        reactivateButtons();
         return;
     }
 
@@ -75,7 +75,7 @@ function deleteText() {
         expressionText = expressionText.slice(0, -3); 
         operation = null;
         containsOperator = false;
-        reactivateButtons(containsNumber, containsOperator);
+        reactivateButtons();
         return;
     }
 
@@ -83,8 +83,8 @@ function deleteText() {
         expressionText = expressionText.slice(0, -1);
         numOne = numOne.slice(0, -1);
         if (numOne === "") containsNumber = false;
-        reactivateButtons(containsNumber, containsOperator);
-        deactivateButtons(containsNumber, containsOperator);
+        reactivateButtons();
+        deactivateButtons();
         return;
     }
 
@@ -102,10 +102,10 @@ function setOperator (operator) {
     containsOperator = true;
     expressionText += ` ${operation} `;
 
-    deactivateButtons(containsNumber, containsOperator);
+    deactivateButtons();
 }
 
-function deactivateButtons(containsNumber, containsOperator) {
+function deactivateButtons() {
 
     if (containsOperator === true || containsNumber === false) {
         switchBtn.disabled = true;
@@ -139,7 +139,7 @@ function deactivateButtons(containsNumber, containsOperator) {
     }
 }
 
-function reactivateButtons(containsNumber, containsOperator) {
+function reactivateButtons() {
     if (containsNumber === true && containsOperator === false) {
         if (!numOne.includes(".") && numOne !== "") {
             dotBtn.disabled = false;
@@ -156,7 +156,7 @@ function reactivateButtons(containsNumber, containsOperator) {
     }
 
     if (containsOperator === true 
-        && (!numTwo.includes(".")) 
+        && !numTwo.includes(".") 
         && numTwo !== "") {
         switchBtn.disabled = false;
         switchBtn.classList.remove("disabled-btn");
@@ -170,23 +170,24 @@ function reactivateButtons(containsNumber, containsOperator) {
 
 function appendNumber(number) {
 
-    deactivateButtons(containsNumber, containsOperator)
+    deactivateButtons()
 
     if (containsOperator === false && numTwo === "") {
         numOne += number;
         expressionText += number;
         containsNumber = true;
-        reactivateButtons(containsNumber, containsOperator);
+        reactivateButtons();
     }
 
     if (containsOperator === true && numOne !== "") {
         numTwo += number;
         expressionText += number;
-        reactivateButtons(containsNumber, containsOperator);
+        containsNumber = true;
+        reactivateButtons();
     }
 
     if (number === ".") {
-        deactivateButtons(containsNumber, containsOperator)
+        deactivateButtons()
     }
 }
 
@@ -238,4 +239,4 @@ function operate (a, b, operator) {
 }
 
 // Beginning Function Calls
-deactivateButtons(containsNumber, containsOperator)
+deactivateButtons()
