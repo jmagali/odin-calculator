@@ -102,6 +102,7 @@ function setOperator (operator) {
     containsOperator = true;
     expressionText += ` ${operation} `;
 
+    reactivateButtons();
     deactivateButtons();
 }
 
@@ -156,10 +157,10 @@ function reactivateButtons() {
     }
 
     if (containsOperator === true 
-        && !numTwo.includes(".") 
+        && numTwo.includes(".") === false
         && numTwo !== "") {
-        switchBtn.disabled = false;
-        switchBtn.classList.remove("disabled-btn");
+        dotBtn.disabled = false;
+        dotBtn.classList.remove("disabled-btn");
     }
 
     if (expressionText !== "") {
@@ -169,8 +170,6 @@ function reactivateButtons() {
 }
 
 function appendNumber(number) {
-
-    deactivateButtons()
 
     if (containsOperator === false && numTwo === "") {
         numOne += number;
@@ -185,6 +184,8 @@ function appendNumber(number) {
         containsNumber = true;
         reactivateButtons();
     }
+
+    deactivateButtons()
 
     if (number === ".") {
         deactivateButtons()
