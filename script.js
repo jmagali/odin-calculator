@@ -65,7 +65,7 @@ window.addEventListener('keydown', takeKeyInputs);
 // Expression Functions
 
 function takeKeyInputs(e) {
-    if (e.key >= 0 && e.key <= e || e.key === ".") {
+    if (e.key >= 0 && e.key <= 9 || e.key === ".") {
         if (dotBtn.classList.contains("disabled-btn") && e.key === "." ) {
             return;
         }
@@ -389,7 +389,7 @@ function operate (a, b) {
     prevOperation = operation;
     prevExpressionText = expressionText;
 
-    switch (operator) {
+    switch (operation) {
         case "+":
             answerText = add(a, b);
             break;
@@ -398,12 +398,12 @@ function operate (a, b) {
             break;
         case "x":
         case "*":
-            operator = "x";
+            operation = "x";
             answerText = multiply(a,b);
             break;
         case "÷": 
         case "/":
-            operator = "÷";
+            operation = "÷";
             answerText = divide(a, b);
             break;
     }
