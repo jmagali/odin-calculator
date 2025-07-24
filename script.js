@@ -47,7 +47,7 @@ clearBtn.addEventListener("click", () => clear());
 
 deleteBtn.addEventListener("click", () => deleteText());
 
-equalsBtn.addEventListener("click", )
+equalsBtn.addEventListener("click", () => operate(numOne, numTwo, operation));
 
 // Expression Functions
 
@@ -221,7 +221,7 @@ function appendNumber(number) {
 // Mathematical Functions
 
 function add(a, b) {
-    return a + b;
+    return +a + +b;
 }
 
 function subtract(a, b) {
