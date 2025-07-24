@@ -56,6 +56,10 @@ function updateExpression () {
     expression.innerText = expressionText;
 }
 
+function updateResult () {
+    result.innerText = answerText;
+}
+
 function deleteText() {
 
     if (numTwo.startsWith(`-`)) {
@@ -297,7 +301,7 @@ function operate (a, b, operator) {
     }
 
     pressedEquals = true;
-    updateExpression ();
+    updateResult ();
     deactivateButtons();
 }
 
