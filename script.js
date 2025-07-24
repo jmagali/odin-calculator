@@ -67,12 +67,14 @@ function deleteText() {
             expressionText = expressionText.slice(0, -3);
             numTwo = "";
             deactivateButtons();
+            updateExpression ();
             return;
         }
 
         expressionText = expressionText.slice(0, -1);
         numTwo = numTwo.slice(0, -1);
         reactivateButtons();
+        updateExpression ();
         return;
     }
 
@@ -80,6 +82,7 @@ function deleteText() {
         expressionText = expressionText.slice(0, -1);
         numTwo = numTwo.slice(0, -1);
         reactivateButtons();
+        updateExpression ();
         return;
     }
 
@@ -88,6 +91,7 @@ function deleteText() {
         operation = null;
         containsOperator = false;
         reactivateButtons();
+        updateExpression ();
         return;
     }
 
@@ -97,10 +101,9 @@ function deleteText() {
         if (numOne === "") containsNumber = false;
         reactivateButtons();
         deactivateButtons();
+        updateExpression ();
         return;
     }
-
-    updateExpression ();
 }
 
 function clear () {
@@ -116,8 +119,8 @@ function clear () {
     updateExpression ();
     updateResult ();
 
-    deactivateButtons();
     reactivateButtons();
+    deactivateButtons();
 }
 
 function setOperator (operator) {
@@ -184,6 +187,8 @@ function deactivateButtons() {
         deleteBtn.disabled = true;
         deleteBtn.classList.add("disabled-btn");
     }
+
+    updateResult();
 }
 
 function reactivateButtons() {
