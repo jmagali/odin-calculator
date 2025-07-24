@@ -71,6 +71,7 @@
     padding: 8px;
     position: absolute;
     display: flex;
+    flex-wrap: wrap;
     justify-content: left;
     align-items: start;
     z-index: 1;
