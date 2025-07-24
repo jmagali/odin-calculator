@@ -122,6 +122,7 @@ function deleteText() {
         expressionText = expressionText.slice(0, -1);
         numOne = numOne.slice(0, -1);
         reactivateButtons();
+        deactivateButtons();
         updateExpression ();
         return;
     }
@@ -130,6 +131,7 @@ function deleteText() {
         expressionText = expressionText.slice(0, -1);
         numTwo = numTwo.slice(0, -1);
         reactivateButtons();
+        deactivateButtons();
         updateExpression ();
         return;
     }
@@ -190,7 +192,7 @@ function setOperator (operator) {
 
 function deactivateButtons() {
 
-    if (containsOperator === true && numTwo === "" || containsNumber === false) {
+    if ((containsOperator === true && numTwo === "") || containsNumber === false) {
         switchBtn.disabled = true;
         switchBtn.classList.add("disabled-btn");
 
