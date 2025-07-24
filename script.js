@@ -58,9 +58,45 @@ clearBtn.addEventListener("click", () => clear());
 
 deleteBtn.addEventListener("click", () => deleteText());
 
-equalsBtn.addEventListener("click", () => operate(numOne, numTwo, operation));
+equalsBtn.addEventListener("click", () => operate(numOne, numTwo));
+
+window.addEventListener('keydown', takeKeyInputs);
 
 // Expression Functions
+
+function takeKeyInputs(e) {
+    if (e.key >= 0 && e.key <= e || e.key === ".") {
+        if (dotBtn.classList.contains("disabled-btn") && e.key === "." ) {
+            return;
+        }
+
+        appendNumber(e.key);
+    }
+    if (e.key === "=" || e.key === "Enter") {
+        if (equalsBtn.classList.contains("disabled-btn")) {
+            return;
+        }
+        operate(numOne, numTwo);
+    }
+    if (e.key === "Backspace") {
+        if (deleteBtn.classList.contains("disabled-btn")) {
+            return;
+        }
+        deleteText();
+    }
+    if (e.key === "Escape") {
+        clear();
+    }
+    if (e.key === "+" 
+        || e.key === "-" 
+        || e.key === "*"
+        || e.key === "/") {
+        
+        if (!containsOperator && numOne !== "") {
+            setOperator(e.key);
+        }
+    }
+}
 
 function updateExpression () {
     expression.innerText = expressionText;
@@ -337,7 +373,7 @@ function switchSign(num) {
     return num * -1;
 }
 
-function operate (a, b, operator) {
+function operate (a, b) {
 
     prevNumOne = numOne;
     prevNumTwo = numTwo;
@@ -352,10 +388,13 @@ function operate (a, b, operator) {
             answerText = subtract(a, b);
             break;
         case "x":
+        case "*":
+            operator = "x";
             answerText = multiply(a,b);
             break;
         case "÷": 
         case "/":
+            operator = "÷";
             answerText = divide(a, b);
             break;
     }
