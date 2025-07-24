@@ -5,6 +5,7 @@ let operation = null;
 let containsNumber = false;
 let containsOperator = false;
 let expressionText = "";
+let answerText = "";
 
 // Get all elements
 const expression = document.getElementById("expression");
