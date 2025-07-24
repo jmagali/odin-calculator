@@ -47,6 +47,8 @@ clearBtn.addEventListener("click", () => clear());
 
 deleteBtn.addEventListener("click", () => deleteText());
 
+equalsBtn.addEventListener("click", )
+
 // Expression Functions
 
 function deleteText() {
@@ -243,24 +245,21 @@ function switchSign(num) {
 }
 
 function operate (a, b, operator) {
-    let answer;
 
     switch (operator) {
         case "+":
-            answer = add(a, b);
+            answerText = add(a, b);
             break;
         case "-":
-            answer = subtract(a, b);
+            answerText = subtract(a, b);
             break;
         case "x":
-            answer = multiply(a,b);
+            answerText = multiply(a,b);
             break;
         case "÷": 
-            answer = divide(a, b);
+            answerText = divide(a, b);
             break;
     }
-
-    return answer;
 }
 
 // Beginning Function Calls
