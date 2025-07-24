@@ -296,7 +296,7 @@ function multiply(a, b) {
 }
 
 function divide(a, b) {
-    if (b === 0) {
+    if (+b === 0) {
         return "Error! Cannot divide by 0!";
     }
 
