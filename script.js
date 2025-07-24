@@ -139,6 +139,13 @@ function deactivateButtons() {
         deleteBtn.disabled = true;
         deleteBtn.classList.add("disabled-btn");
     }
+
+    if (containsNumber === false 
+        || containsOperator === false
+        || numTwo === "") {       
+        equalsBtn.disabled = true;
+        equalsBtn.classList.add("disabled-btn");
+    }
 }
 
 function reactivateButtons() {
@@ -168,6 +175,13 @@ function reactivateButtons() {
         deleteBtn.disabled = false;
         deleteBtn.classList.remove("disabled-btn");
     }
+
+    if (containsNumber === true 
+        && containsOperator === true
+        && numTwo !== "") {
+            equalsBtn.disabled = false;
+            equalsBtn.classList.remove("disabled-btn");    
+        }
 }
 
 function appendNumber(number) {
