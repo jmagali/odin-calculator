@@ -32,6 +32,11 @@ switchBtn.addEventListener("click", function () {
         expressionText = "";
         numOne = switchSign(numOne).toString();
         expressionText += numOne;
+
+        if (answerText !== "") {
+            answerText = numOne;
+            updateResult();
+        }
     }
     else {
         expressionText = expressionText.slice(0, numOne.length + 3);
@@ -62,6 +67,12 @@ function updateResult () {
 }
 
 function deleteText() {
+
+    if (expressionText === "" && numOne !== "") {
+        expressionText = numOne;
+        containsNumber = true;
+        updateExpression();
+    }
 
     if (numTwo.startsWith(`-`)) {
         if (numTwo.length === 2) {
@@ -241,7 +252,7 @@ function reactivateButtons() {
 
 function appendNumber(number) {
 
-    if (answerText === "" && !containsOperator && numOne !== "") {
+    if (answerText !== "" && !containsOperator && numOne !== "") {
         expressionText = "";
         answerText = "";
         numOne = "";
