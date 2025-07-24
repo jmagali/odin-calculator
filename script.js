@@ -216,7 +216,16 @@ function setOperator (operator) {
         updateResult();
     }
 
-    operation = operator;
+    if (operator === "*") {
+        operation = "x";
+    }
+    else if (operator === "/") {
+        operation = "÷";
+    }
+    else {
+        operation = operator;
+    }
+
     containsOperator = true;
     expressionText += ` ${operation} `;
 
