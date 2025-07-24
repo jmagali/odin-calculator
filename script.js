@@ -115,7 +115,7 @@ function setOperator (operator) {
 
 function deactivateButtons() {
 
-    if (containsOperator === true || containsNumber === false) {
+    if (containsOperator === true && numTwo === "" || containsNumber === false) {
         switchBtn.disabled = true;
         switchBtn.classList.add("disabled-btn");
 
@@ -187,6 +187,8 @@ function reactivateButtons() {
         && numTwo !== "") {
             equalsBtn.disabled = false;
             equalsBtn.classList.remove("disabled-btn");    
+            switchBtn.disabled = false;
+            switchBtn.classList.remove("disabled-btn");    
         }
 }
 
@@ -207,6 +209,7 @@ function appendNumber(number) {
     }
 
     deactivateButtons()
+    reactivateButtons();
 
     if (number === ".") {
         deactivateButtons()
