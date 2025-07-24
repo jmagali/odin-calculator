@@ -10,6 +10,7 @@ let prevNumOne = "";
 let prevNumTwo = "";
 let prevOperation = null;
 let prevExpressionText = "";
+const MAX_LENGTH = 12;
 
 // Get all elements
 const expression = document.getElementById("expression");
@@ -288,17 +289,28 @@ function appendNumber(number) {
     }
 
     if (containsOperator === false && numTwo === "") {
-        numOne += number;
-        expressionText += number;
-        containsNumber = true;
-        reactivateButtons();
+        if (numOne.length < MAX_LENGTH) {
+            numOne += number;
+            expressionText += number;
+            containsNumber = true;
+            reactivateButtons();
+        }
+        else {
+            answerText = "Error! Max length exceeded!";
+        }
     }
 
     if (containsOperator === true && numOne !== "") {
-        numTwo += number;
-        expressionText += number;
-        containsNumber = true;
-        reactivateButtons();
+        if (numOne.length < MAX_LENGTH) {
+            numTwo += number;
+            expressionText += number;
+            containsNumber = true;
+            reactivateButtons();
+        }
+        else {
+            answerText = "Error! Max length exceeded!";
+        }
+
     }
 
     deactivateButtons();
