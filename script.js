@@ -113,7 +113,8 @@ function clear () {
     answerText = "";
     pressedEquals = false;
 
-
+    updateExpression ();
+    updateResult ();
 
     deactivateButtons();
     reactivateButtons();
@@ -186,8 +187,8 @@ function deactivateButtons() {
 }
 
 function reactivateButtons() {
-    if (containsNumber === true && containsOperator === false) {
-        if (!numOne.includes(".") && numOne !== "") {
+    if (containsNumber === true && containsOperator === false && numOne !== "") {
+        if (!numOne.includes(".") ) {
             dotBtn.disabled = false;
             dotBtn.classList.remove("disabled-btn");
         }
