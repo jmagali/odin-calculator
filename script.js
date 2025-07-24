@@ -96,6 +96,10 @@ function clear () {
     numOne = "";
     numTwo = "";
     operation = null;
+    expressionText = "";
+
+    deactivateButtons();
+    reactivateButtons();
 }
 
 function setOperator (operator) {
