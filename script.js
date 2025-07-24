@@ -86,7 +86,6 @@ function deleteText() {
         updateResult();
         reactivateButtons();
         deactivateButtons();
-        return;
     }
 
     if (expressionText === "" && numOne !== "") {
